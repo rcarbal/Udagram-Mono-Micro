@@ -1,0 +1,15 @@
+services:
+  udagram-api-feed:
+    image: bibleit/udagram-frontend:latest
+
+  udagram-api-users:
+    image: bibleit/udagram-api-users:latest
+
+  udagram-frontend:
+    image: bibleit/udagram-api-feed:latest
+    depends_on:
+      - udagram-api-feed
+      - udagram-api-users
+      
+network:
+  fullstack-application-network

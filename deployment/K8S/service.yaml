@@ -5,6 +5,7 @@ metadata:
   labels:
     run: my-app
 spec:
+  # this to tell k8s that the pods should be exposed over port 80
   ports:
   - port: 80
     protocol: TCP

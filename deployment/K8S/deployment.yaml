@@ -2,28 +2,28 @@ apiVersion: apps/v1
 # you need this specified as a deployment. 
 kind: Deployment
 metadata:
-  name: my-app
+  name: my-udagram
   labels:
-    app: my-app
+    app: my-udagram
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: my-app
+      app: my-udagram
   template:
     metadata:
       labels:
-        app: my-app
+        app: my-udagram
     spec:
       containers:
       - name: simple-node
         image: bibleit/simple-node
         ports:
         - containerPort: 80
-      # this is so an api can reach to check if the application is still healthy.
-      # livenessProbe:
-      #   httpGet:
-      #     path: /health
-      #     port: 8080
-      #   initialDelayedSeconds: 3
-      #   periodSeconds: 3
+      #this is so an api can reach to check if the application is still healthy.
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: 8080
+        initialDelayedSeconds: 3
+        periodSeconds: 3

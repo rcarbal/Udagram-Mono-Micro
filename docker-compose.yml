@@ -1,24 +1,24 @@
 services:
   udagram-api-feed:
-    image: bibleit/udagram-frontend:latest
+    image: bibleit/udagram-frontend:test
     build:
       context: api-feed/
       dockerfile: Dockerfile
 
   udagram-api-users:
-    image: bibleit/udagram-api-users:latest
+    image: bibleit/udagram-api-users:test
     build:
       context: api-users/
       dockerfile: Dockerfile
 
   udagram-frontend:
-    image: bibleit/udagram-api-feed:latest
+    image: bibleit/udagram-api-feed:test
     build: 
       context: udagram-frontend/
       dockerfile: Dockerfile
-    depends_on:
-      - udagram-api-feed
-      - udagram-api-users
+    # depends_on:
+    #   - udagram-api-feed
+    #   - udagram-api-users
       
-network:
-  fullstack-application-network
+# network:
+#   fullstack-application-network

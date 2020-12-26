@@ -1,18 +1,24 @@
 services:
+  nginx:
+    image: bibleit/nginx:latest
+    build:
+      context: deployment/docker/
+      dockerfile: Dockerfile
+
   udagram-api-feed:
-    image: bibleit/udagram-frontend:test
+    image: bibleit/udagram-frontend:latest
     build:
       context: api-feed/
       dockerfile: Dockerfile
 
   udagram-api-users:
-    image: bibleit/udagram-api-users:test
+    image: bibleit/udagram-api-users:latest
     build:
       context: api-users/
       dockerfile: Dockerfile
 
   udagram-frontend:
-    image: bibleit/udagram-api-feed:test
+    image: bibleit/udagram-api-feed:latest
     build: 
       context: udagram-frontend/
       dockerfile: Dockerfile

@@ -1,3 +1,3 @@
 FROM nginx:alpine
 
-COPY nginx.config /etc/nginx/nginx.config
+COPY deployment/docker/nginx.config /etc/nginx/nginx.config

@@ -1,24 +1,23 @@
 language: node_js
 node_js:
   - 13
-env:
-  - DOCKER_COMPOSE_VERSION=1.4.2
 
-before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
+services:
+  - docker
 
+# Pre-testing installs
 install:
   - echo "nothing needs to be installed"
 
+# Scripts to be run such as tests
+before_script:
+  - echo "no tests"
+
 script:
-  - docker-compose build --parallel
+  - docker --version # print the version for logging
+  - docker build . -t nginx-uda -f deployment/docker/Dockerfile
+  - docker tag nginx-uda bibleit/nginx-uda:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push bibleit/nginx:latest
-  - docker push bibleit/udagram-frontend:latest
-  - docker push bibleit/udagram-api-users:latest
-  - docker push bibleit/udagram-api-feed:latest
+  - docker push bibleit/nginx-uda

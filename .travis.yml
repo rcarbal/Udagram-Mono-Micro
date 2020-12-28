@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 13
+  - 12
 
 services:
   - docker
@@ -15,10 +15,10 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build . -t nginx-uda -f deployment/docker/Dockerfile
-  - docker build . -t udagram-api-feed -f api-feed/Dockerfile
-  - docker build . -t udagram-api-users -f api-users/Dockerfile
-  - docker build . -t udagram-frontend -f udagram-frontend/Dockerfile
+  - docker build ./deployment/docker -t nginx-uda -f deployment/docker/Dockerfile
+  - docker build ./udagram-api-feed -t udagram-api-feed -f api-feed/Dockerfile
+  - docker build ./udagram-api-users -t udagram-api-users -f api-users/Dockerfile
+  - docker build ./udagram-frontend -t udagram-frontend -f udagram-frontend/Dockerfile
   - docker tag nginx-uda bibleit/nginx-uda:latest
   - docker tag udagram-api-feed bibleit/udagram-api-feed:latest
   - docker tag udagram-api-users bibleit/udagram-api-users:latest

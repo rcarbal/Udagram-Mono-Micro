@@ -11,8 +11,11 @@ RUN npm ci
 # Bundle app source
 COPY . .
 # RUN ionic init
-RUN ionic build
+
+RUN ionic build   
 ## Run
 FROM nginx:alpine
 #COPY www /usr/share/nginx/html
 COPY --from=ionic  /usr/src/app/www /usr/share/nginx/html
+
+# docker build ./udagram-frontend -t udagram-frontend -f udagram-frontend/Dockerfile

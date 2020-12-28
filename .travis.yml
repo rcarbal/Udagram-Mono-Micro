@@ -16,8 +16,8 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build ./deployment/docker -t nginx-uda -f deployment/docker/Dockerfile
-  - docker build ./udagram-api-feed -t udagram-api-feed -f api-feed/Dockerfile
-  - docker build ./udagram-api-users -t udagram-api-users -f api-users/Dockerfile
+  - docker build ./api-feed -t udagram-api-feed -f api-feed/Dockerfile
+  - docker build ./api-users -t udagram-api-users -f api-users/Dockerfile
   - docker build ./udagram-frontend -t udagram-frontend -f udagram-frontend/Dockerfile
   - docker tag nginx-uda bibleit/nginx-uda:latest
   - docker tag udagram-api-feed bibleit/udagram-api-feed:latest

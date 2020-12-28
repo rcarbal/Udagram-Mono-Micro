@@ -2,21 +2,21 @@ apiVersion: apps/v1
 # you need this specified as a deployment. 
 kind: Deployment
 metadata:
-  name: my-udagram
+  name: udagram-api-feed
   labels:
-    app: my-udagram
+    app: udagram-api-feed
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: my-udagram
+      app: udagram-api-feed
   template:
     metadata:
       labels:
-        app: my-udagram
+        app: udagram-api-feed
     spec:
       containers:
-      - name: simple-node
+      - name: 
         image: bibleit/simple-node
         ports:
         - containerPort: 80

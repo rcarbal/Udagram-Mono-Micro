@@ -16,14 +16,7 @@ spec:
         app: udagram-api-feed
     spec:
       containers:
-      - name: 
-        image: bibleit/simple-node
+      - name: udagram-api-feed
+        image: bibleit/udagram-api-feed
         ports:
         - containerPort: 80
-      #this is so an api can reach to check if the application is still healthy.
-      # livenessProbe:
-      #   httpGet:
-      #     path: /health
-      #     port: 8080
-      #   initialDelayedSeconds: 3
-      #   periodSeconds: 3

@@ -3,10 +3,11 @@ kind: Service
 metadata:
   name: my-app
   labels:
-    run: my-app
+    app: my-app
 spec:
   # this to tell k8s that the pods should be exposed over port 80
   ports:
-  - port: 80
+  - port: 8080
     protocol: TCP
   selector:
+    app: my-app

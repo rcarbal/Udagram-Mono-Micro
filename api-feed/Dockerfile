@@ -1,4 +1,4 @@
-
+# docker run -p 8080:8080 bibleit/udagram-api-feed
 FROM node:12
 
 ARG POSTGRES_USERNAME

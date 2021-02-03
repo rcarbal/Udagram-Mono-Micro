@@ -6,7 +6,7 @@ metadata:
     app: udagram-api-feed
 spec:
   ports:
-  - port: 80
+  - port: 8080
     protocol: TCP
   selector:
     app: udagram-api-feed

@@ -2,22 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: reverse-proxy
-  name: reverse-proxy
+    service: reverseproxy
+  name: reverseproxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: reverse-proxy
+      service: reverseproxy
   template:
     metadata:
       labels:
-        app: reverse-proxy
-        service: reverse-proxy
+        service: reverseproxy
     spec:
       containers:
-      - image: bibleit/nginx-uda
-        name: reverse-proxy
+      - image:  bibleit/nginx-uda
+        name: reverseproxyu
         imagePullPolicy: Always          
         resources:
           requests:

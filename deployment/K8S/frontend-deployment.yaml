@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+# you need this specified as a deployment. 
+kind: Deployment
+metadata:
+  name: frontend-serv
+  labels:
+    app: frontend-serv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-serv
+  template:
+    metadata:
+      labels:
+        app: frontend-serv
+    spec:
+      containers:
+      - name: frontend-serv
+        image: bibleit/udagram-frontend
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+# you need this specified as a deployment. 
+kind: Deployment
+metadata:
+  name: udagram-api-users
+  labels:
+    app: udagram-api-users
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-api-users
+  template:
+    metadata:
+      labels:
+        app: udagram-api-users
+    spec:
+      containers:
+      - name: udagram-api-users
+        image: bibleit/udagram-api-user
+        ports:
+        - containerPort: 8080

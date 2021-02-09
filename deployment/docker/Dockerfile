@@ -1,3 +1,3 @@
 FROM nginx:alpine
 
-COPY nginx.config /etc/nginx/nginx.config
+COPY nginx-uda.conf /etc/nginx/nginx.conf

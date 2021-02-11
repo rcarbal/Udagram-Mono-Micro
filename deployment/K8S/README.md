@@ -32,3 +32,8 @@ connect to pod
 ```
     kubectl exec -it POD_NAME bash
 ```
+
+Example of exposing a port
+```
+    kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+```

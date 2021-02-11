@@ -19,4 +19,4 @@ spec:
       - name: frontend-serv
         image: bibleit/udagram-frontend
         ports:
-        - containerPort: 8080
+        - containerPort: 80

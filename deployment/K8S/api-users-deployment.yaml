@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: udagram-api-users
-        image: bibleit/udagram-api-user
+        image: bibleit/udagram-api-users
         ports:
         - containerPort: 8080

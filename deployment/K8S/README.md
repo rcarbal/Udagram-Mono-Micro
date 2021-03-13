@@ -2,6 +2,7 @@ create eks cluster using Udagram cluster name & node group
 run using command 
 ```
     aws eks --region us-west-2 update-kubeconfig --name Udagram
+    aws eks --region us-west-1 update-kubeconfig --name Udagram
 ```
 
 deploy yaml files
@@ -36,4 +37,9 @@ connect to pod
 Example of exposing a port
 ```
     kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+```
+
+curl service within pod
+```
+    curl reverseproxy-svc:8080/api/health
 ```

@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,19 +16,18 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      # - image:  bibleit/nginx-uda
       # - image: mercicle/microservice-project:reverseproxy
       # - image: bibleit/nginx-uda:test-with-1
-      - image: bibleit/nginx-uda:test-with-3
+      - image: bibleit/nginx-uda:test-with-2
         name: reverseproxy
-        imagePullPolicy: Always          
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "64Mi"
             cpu: "250m"
           limits:
             memory: "1024Mi"
-            cpu: "500m"       
+            cpu: "500m"
         ports:
         - containerPort: 8080
       restartPolicy: Always

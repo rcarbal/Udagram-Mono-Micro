@@ -15,10 +15,10 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      # - image:  bibleit/nginx-uda
+      - image:  bibleit/nginx-uda
       # - image: mercicle/microservice-project:reverseproxy
       # - image: bibleit/nginx-uda:test-with-1
-      - image: bibleit/nginx-uda:test-with-3
+      # - image: bibleit/nginx-uda:test-with-3
         name: reverseproxy
         imagePullPolicy: Always          
         resources:

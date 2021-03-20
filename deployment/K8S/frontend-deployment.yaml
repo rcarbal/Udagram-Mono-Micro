@@ -18,5 +18,26 @@ spec:
       containers:
       - name: frontend-serv
         image: bibleit/udagram-frontend
+        env:
+          - name: POSTGRES_USERNAME
+            value: "$(POSTGRES_USERNAME)"
+          - name: POSTGRES_PASSWORD
+            vale: "$(POSTGRES_PASSWORD)"
+          - name: POSTGRES_HOST
+            vale: "$(POSTGRES_HOST)"
+          - name: POSTGRES_DB
+            vale: "$(POSTGRES_DB)"
+          - name: AWS_BUCKET
+            vale: "$(AWS_BUCKET)"
+          - name: AWS_REGION
+            vale: "$(AWS_REGION)"
+          - name: AWS_PROFILE
+            vale: "$(AWS_PROFILE)"
+          - name: JWT_SECRET
+            vale: "$(JWT_SECRET)"
+          - name: URL
+            vale: "$(URL)"
+          - name: PROXY_URL
+            value: ""
         ports:
         - containerPort: 80

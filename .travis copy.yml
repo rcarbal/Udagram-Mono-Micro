@@ -16,8 +16,17 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build ./deployment/docker -t nginx-uda -f deployment/docker/Dockerfile
+  - docker build ./api-feed -t udagram-api-feed -f api-feed/Dockerfile
+  - docker build ./api-users -t udagram-api-users -f api-users/Dockerfile 
+  - docker build ./udagram-frontend -t udagram-frontend -f udagram-frontend/Dockerfile 
   - docker tag nginx-uda bibleit/nginx-uda:latest
+  - docker tag udagram-api-feed bibleit/udagram-api-feed:no_env
+  - docker tag udagram-api-users bibleit/udagram-api-users:no_env
+  - docker tag udagram-frontend bibleit/udagram-frontend:no_env
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push bibleit/nginx-uda
+  - docker push bibleit/udagram-api-feed:no_env
+  - docker push bibleit/udagram-api-users:no_env
+  - docker push bibleit/udagram-frontend:no_env

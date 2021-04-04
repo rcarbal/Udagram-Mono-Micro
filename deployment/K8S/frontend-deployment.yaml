@@ -17,27 +17,52 @@ spec:
     spec:
       containers:
       - name: frontend-serv
-        image: bibleit/udagram-frontend
+        image: bibleit/udagram-frontend:no_env
         env:
-          - name: POSTGRES_USERNAME
-            value: "$(POSTGRES_USERNAME)"
-          - name: POSTGRES_PASSWORD
-            vale: "$(POSTGRES_PASSWORD)"
-          - name: POSTGRES_HOST
-            vale: "$(POSTGRES_HOST)"
-          - name: POSTGRES_DB
-            vale: "$(POSTGRES_DB)"
-          - name: AWS_BUCKET
-            vale: "$(AWS_BUCKET)"
-          - name: AWS_REGION
-            vale: "$(AWS_REGION)"
-          - name: AWS_PROFILE
-            vale: "$(AWS_PROFILE)"
-          - name: JWT_SECRET
-            vale: "$(JWT_SECRET)"
-          - name: URL
-            vale: "$(URL)"
-          - name: PROXY_URL
-            value: ""
+        - name: POSTGRES_USERNAME
+          -valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: postgres
+        - name: POSTGRES_PASSWORD
+          -valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: 2Qepxniw
+        - name: POSTGRES_HOST
+          -valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: postgres.c50pfikkerps.us-west-1.rds.amazonaws.com
+        - name: POSTGRES_DB
+          -valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: postgres
+        - name: AWS_BUCKET
+          -valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: udacity-project-493128253161
+        - name: AWS_REGION
+          -valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: us-west-2
+        - name: AWS_PROFILE
+          -valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: default
+        - name: JWT_SECRET
+          -valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: dfkjasdlkfjalsdkfj
+        - name: URL
+          -valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: http://localhost:8100
         ports:
         - containerPort: 80

@@ -43,3 +43,5 @@ curl service within pod
 ```
     curl reverseproxy-svc:8080/api/health
 ```
+
+Set nginx endpoint for frontend

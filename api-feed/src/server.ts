@@ -14,7 +14,8 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
   await sequelize.sync();
 
   const app = express();
-  const port = process.env.PORT || 8080;
+  // const port = process.env.PORT || 8080;
+  const port = process.env.PORT || 8000;
 
   app.use(bodyParser.json());
 
@@ -35,10 +36,17 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
     res.send( '/api/v0/' );
   } );
 
+  // catch all
+  app.get('*', async (req, res) => {
+    console.log(req.originalUrl);
+    res.send('okay')
+  });
+
 
   // Start the Server
   app.listen( port, () => {
     console.log( `server running ${config.url}` );
     console.log( `press CTRL+C to stop server` );
+    console.log(`updated 6:49pm`);
   } );
 })();

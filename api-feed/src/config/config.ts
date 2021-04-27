@@ -8,6 +8,8 @@ export const config = {
   'aws_profile': process.env.AWS_PROFILE,
   'aws_media_bucket': process.env.AWS_BUCKET,
   'url': process.env.URL,
+  'access_key_id': process.env.AWS_ACCESS_KEY_ID,
+  'secret_access_key': process.env.AWS_SECRET_ACCESS_KEY,
   'proxy_url': process.env.PROXY_URL,
   'jwt': {
     'secret': process.env.JWT_SECRET,

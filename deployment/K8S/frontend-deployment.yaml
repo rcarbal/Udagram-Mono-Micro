@@ -20,49 +20,49 @@ spec:
         image: bibleit/udagram-frontend:no_env
         env:
         - name: POSTGRES_USERNAME
-          -valueFrom:
+          valueFrom:
             configMapKeyRef:
               name: env-config
-              key: postgres
+              key: POSTGRES_USERNAME
         - name: POSTGRES_PASSWORD
-          -valueFrom:
+          valueFrom:
             configMapKeyRef:
               name: env-config
-              key: 2Qepxniw
+              key: POSTGRES_PASSWORD
         - name: POSTGRES_HOST
-          -valueFrom:
+          valueFrom:
             configMapKeyRef:
               name: env-config
-              key: postgres.c50pfikkerps.us-west-1.rds.amazonaws.com
+              key: POSTGRES_HOST
         - name: POSTGRES_DB
-          -valueFrom:
+          valueFrom:
             configMapKeyRef:
               name: env-config
-              key: postgres
+              key: POSTGRES_DB
         - name: AWS_BUCKET
-          -valueFrom:
+          valueFrom:
             configMapKeyRef:
               name: env-config
-              key: udacity-project-493128253161
+              key: AWS_BUCKET
         - name: AWS_REGION
-          -valueFrom:
+          valueFrom:
             configMapKeyRef:
               name: env-config
-              key: us-west-2
+              key: AWS_REGION
         - name: AWS_PROFILE
-          -valueFrom:
+          valueFrom:
             configMapKeyRef:
               name: env-config
-              key: default
+              key: AWS_PROFILE
         - name: JWT_SECRET
-          -valueFrom:
+          valueFrom:
             configMapKeyRef:
               name: env-config
-              key: dfkjasdlkfjalsdkfj
+              key: JWT_SECRET
         - name: URL
-          -valueFrom:
+          valueFrom:
             configMapKeyRef:
               name: env-config
-              key: http://localhost:8100
+              key: URL
         ports:
         - containerPort: 80

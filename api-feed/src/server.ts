@@ -38,7 +38,6 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
 
   // catch all
   app.get('*', async (req, res) => {
-    console.log(req.originalUrl);
     res.send('okay')
   });
 

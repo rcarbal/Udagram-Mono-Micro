@@ -9,17 +9,11 @@ const router: Router = Router();
 
 export function requireAuth(req: Request, res: Response, next: NextFunction) {
   if (!req.headers || !req.headers.authorization) {
-    console.log("req.headers");
-    console.log(req.headers);
-    console.log("req.headers.authorization");
     return res.status(401).send({message: 'No authorization headers.'});
   }
 
   const tokenBearer = req.headers.authorization.split(' ');
   if (tokenBearer.length != 2) {
-
-    console.log("tokenbearer.lengthe != 2");
-    console.log(tokenBearer.length);
     return res.status(401).send({message: 'Malformed token.'});
   }
 

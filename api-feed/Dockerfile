@@ -1,5 +1,5 @@
-# docker run -p 8080:8080 bibleit/udagram-api-feed
-# docker run -p 8000:8000 bibleit/udagram-api-feed:local
+# docker run -p 8000:8000 bibleit/udagram-api-feed
+# docker run -p 8000:8000 bibleit/udagram-api-feed:latest
 FROM node:12
 
 # uncomment below if you will set the envs through the docker build command 
@@ -13,6 +13,8 @@ ARG AWS_REGION
 ARG AWS_PROFILE
 ARG JWT_SECRET
 ARG URL
+ARG S3_ACCESS_ID
+ARG S3_ACCESS_KEY
 
 ENV POSTGRES_USERNAME=$POSTGRES_USERNAME \ 
     POSTGRES_PASSWORD=$POSTGRES_PASSWORD \
@@ -22,7 +24,9 @@ ENV POSTGRES_USERNAME=$POSTGRES_USERNAME \
     AWS_REGION=$AWS_REGION \
     AWS_PROFILE=$AWS_PROFILE \
     JWT_SECRET=$JWT_SECRET \
-    URL=$URL
+    URL=$URL \
+    S3_ACCESS_ID=$S3_ACCESS_ID \
+    S3_ACCESS_KEY=$S3_ACCESS_KEY
 
 WORKDIR /usr/src/app
 
